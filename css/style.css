@@ -169,7 +169,7 @@ p { font-size: 1.4rem; margin-top: 5px; line-height: 2.5rem; font-weight: 400; l
 #projects .project-link { margin-top: 16px; font-size: 1.3rem; font-weight: 700; color: var(--primary); display: inline-flex; align-items: center; gap: 6px; transition: gap 0.25s; }
 #projects .project-link:hover { gap: 12px; }
 
-/* Grille de projets : 1 colonne sur mobile, 2 sur bureau (le projet .featured prend toute la largeur) */
+/* Projets : une carte pleine largeur par projet */
 #projects .projects > .cta { margin-top: 40px; }
 #projects .project-info h1 { overflow-wrap: anywhere; }
 
@@ -252,11 +252,7 @@ p { font-size: 1.4rem; margin-top: 5px; line-height: 2.5rem; font-weight: 400; l
   #contact .contact-item { flex: 1 1 300px; }
   #about .about-cta { justify-content: flex-start; }
 }
-/* Bureau moyen : projets sur 2 colonnes */
-@media (min-width: 992px) {
-  #projects .all-projects { display: grid; grid-template-columns: 1fr 1fr; }
-  #projects .project-item.featured { grid-column: 1 / -1; }
-}
+
 /* Bureau (écrans ≥ 1200px) : menu horizontal, hamburger caché */
 @media (min-width: 1200px) {
   #header .hamburger { display: none; }

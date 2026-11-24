@@ -162,7 +162,7 @@
           <div class="card-item reveal d1">
             <span class="card-icon">🌐</span>
             <h2>Web</h2>
-            <p data-i18n="sk4_p">HTML, CSS, JavaScript, API REST JSON, conception d'interfaces adaptatives.</p>
+            <p data-i18n="sk4_p">HTML, CSS, JavaScript, Node.js, Express, API REST JSON, JWT.</p>
           </div>
           <div class="card-item reveal d2">
             <span class="card-icon">🖼️</span>
@@ -172,7 +172,7 @@
           <div class="card-item reveal d3">
             <span class="card-icon">🛠️</span>
             <h2 data-i18n="sk6_t">Outils</h2>
-            <p data-i18n="sk6_p">Git, GitHub, IntelliJ IDEA, VS Code, WinDev, MySQL Workbench, Linux (Ubuntu/WSL2), Python.</p>
+            <p data-i18n="sk6_p">Git, GitHub, Python, PyTorch, IntelliJ IDEA, VS Code, Postman, MySQL Workbench, Linux (Ubuntu/WSL2).</p>
           </div>
         </div>
       </div>
@@ -219,94 +219,102 @@
             <span data-i18n="proj_t2">Projets</span>
           </h1>
           <p class="section-sub" data-i18n="proj_sub">
-            Des projets concrets, tous disponibles sur mon GitHub.
+            Des projets concrets alliant théorie et pratique, tous disponibles sur mon GitHub.
           </p>
         </div>
         <div class="all-projects">
           <!-- ── Projet 1 : MediBook ── -->
-          <div class="project-item featured reveal">
-            <div class="project-accent"></div>
-            <div class="project-info">
-              <span class="project-tag" data-i18n="p1_tag">Full-stack · Jakarta EE</span>
-              <h1>MediBook</h1>
-              <h2 data-i18n="p1_st">Application Web de prise de rendez-vous médicaux</h2>
-              <p data-i18n="p1_p">
-                Application à trois rôles (patient, médecin, administrateur) : réservation en 3 étapes, créneaux de 30 minutes, détection des chevauchements et prévention des doubles réservations. API REST JSON (JAX-RS), mots de passe hachés en PBKDF2, contrôle d'accès par rôles et 21 tests JUnit.
-              </p>
-              <div class="project-badges">
-                <span class="badge">Java</span><span class="badge">Jakarta EE 10</span><span class="badge">JSF / PrimeFaces</span><span class="badge">CDI / EJB</span><span class="badge">JPA</span><span class="badge">JAX-RS</span><span class="badge">Payara</span><span class="badge">JUnit</span>
-              </div>
-              <a class="project-link" href="https://github.com/ferhatyassine/medibook" target="_blank" rel="noopener"><span data-i18n="p_link">Voir le code</span> →</a>
-            </div>
-          </div>
-
-          <!-- ── Projet 2 : Base de données scolaire (data-admin) ── -->
           <div class="project-item reveal">
             <div class="project-accent"></div>
             <div class="project-info">
-              <span class="project-tag" data-i18n="p2_tag">Bases de données · SQL</span>
-              <h1 data-i18n="p2_t">Base de données scolaire</h1>
-              <h2 data-i18n="p2_st">Administration et analyse de données avec MySQL</h2>
-              <p data-i18n="p2_p">
-                Schéma relationnel d'un conseil scolaire (écoles, élèves, absences) avec clés étrangères et contraintes, puis requêtes d'analyse : jointures, agrégations, sous-requêtes, vues, procédures stockées, transactions et index vérifiés avec EXPLAIN.
-              </p>
-              <div class="project-badges">
-                <span class="badge">MySQL</span><span class="badge">SQL</span><span class="badge" data-i18n="p2_v">Vues</span><span class="badge" data-i18n="p2_b">Procédures stockées</span><span class="badge">Transactions</span>
-              </div>
-              <a class="project-link" href="https://github.com/ferhatyassine/data-admin" target="_blank" rel="noopener"><span data-i18n="p_link">Voir le code</span> →</a>
+              <span class="project-tag" data-i18n="p1_tag">Développement Web · Jakarta EE</span>
+              <h1 data-i18n="p1_t">MediBook</h1>
+              <h2 data-i18n="p1_tech">Java · Jakarta EE 10 · PrimeFaces · JPA</h2>
+              <p data-i18n="p1_p">Application Web de gestion de rendez-vous médicaux à trois rôles (patient, médecin, administrateur) : réservation de créneaux de 30 minutes, détection des chevauchements et prévention des doubles réservations, API REST JSON (JAX-RS), mots de passe hachés en PBKDF2, contrôle d'accès par rôles et 21 tests JUnit.</p>
+              <div class="project-badges"><span class="badge">Java</span><span class="badge">Jakarta EE 10</span><span class="badge">JSF / PrimeFaces</span><span class="badge">JPA / EJB</span><span class="badge">JAX-RS</span><span class="badge">Payara</span><span class="badge">JUnit</span></div>
+              <a class="project-link" href="https://github.com/ferhatyassine/medibook" target="_blank" rel="noopener"><span data-i18n="p_link">Voir le projet</span> →</a>
             </div>
           </div>
 
-          <!-- ── Projet 3 : Modélisation du bruit ── -->
+          <!-- ── Projet 2 : API de location de voitures ── -->
           <div class="project-item reveal">
             <div class="project-accent"></div>
             <div class="project-info">
-              <span class="project-tag" data-i18n="p3_tag">Recherche · Traitement d'image</span>
-              <h1 data-i18n="p3_t">Modélisation du bruit perceptuel</h1>
-              <h2 data-i18n="p3_st">Mémoire de maîtrise en génie logiciel</h2>
-              <p data-i18n="p3_p">
-                Deux approches pour mesurer le bruit dans les images : métriques mathématiques (PSNR, MSE, critères de Linfoot) et modèle perceptuel du système visuel humain (carte de saillance d'Itti-Koch, pyramides gaussiennes, filtres de Gabor), avec interface Qt.
-              </p>
-              <div class="project-badges">
-                <span class="badge">C++20</span><span class="badge">Qt</span><span class="badge">CMake</span><span class="badge">PSNR</span><span class="badge">Itti-Koch</span>
-              </div>
-              <a class="project-link" href="https://github.com/ferhatyassine/perceptual-noise-modeling" target="_blank" rel="noopener"><span data-i18n="p_link">Voir le code</span> →</a>
+              <span class="project-tag" data-i18n="p2_tag">API REST · Projet d'équipe</span>
+              <h1 data-i18n="p2_t">API de location de voitures</h1>
+              <h2 data-i18n="p2_tech">Node.js · Express · Sequelize · MySQL</h2>
+              <p data-i18n="p2_p">API REST d'une agence de location de voitures : clients, véhicules, marques, catégories, agences, locations et paiements. Modèle de données Sequelize sur MySQL, authentification JWT, hachage bcrypt, rôles (admin, employé, client), validation avec express-validator, pagination, téléversement d'images (Multer) et collection de tests Postman.</p>
+              <div class="project-badges"><span class="badge">Node.js</span><span class="badge">Express</span><span class="badge">Sequelize</span><span class="badge">MySQL</span><span class="badge">JWT</span><span class="badge">bcrypt</span><span class="badge">Postman</span></div>
+              <a class="project-link" href="https://github.com/ferhatyassine/location-voitures-api" target="_blank" rel="noopener"><span data-i18n="p_link">Voir le projet</span> →</a>
             </div>
           </div>
 
-          <!-- ── Projet 4 : Embedded C++ Journey ── -->
+          <!-- ── Projet 3 : AI Portfolio ── -->
           <div class="project-item reveal">
             <div class="project-accent"></div>
             <div class="project-info">
-              <span class="project-tag" data-i18n="p4_tag">C++ moderne · Linux</span>
-              <h1 data-i18n="p4_t">Gestionnaire de tâches CLI</h1>
-              <h2 data-i18n="p4_st">Parcours C++ / systèmes embarqués</h2>
-              <p data-i18n="p4_p">
-                Application en ligne de commande (ajouter, lister, terminer, supprimer) avec persistance dans un fichier, découpée en modules. Chaîne d'outils Linux sous WSL2 (gcc, CMake) et débogage mémoire avec GDB, dans un parcours autodidacte vers le C++ embarqué.
-              </p>
-              <div class="project-badges">
-                <span class="badge">C++17</span><span class="badge">Linux</span><span class="badge">GDB</span><span class="badge">g++</span><span class="badge">WSL2</span>
-              </div>
-              <a class="project-link" href="https://github.com/ferhatyassine/embedded-cpp-journey" target="_blank" rel="noopener"><span data-i18n="p_link">Voir le code</span> →</a>
+              <span class="project-tag" data-i18n="p3_tag">Intelligence artificielle · IA responsable</span>
+              <h1 data-i18n="p3_t">AI Portfolio</h1>
+              <h2 data-i18n="p3_tech">Python · PyTorch · pytest · API Claude</h2>
+              <p data-i18n="p3_p">Un mini-LLM de type GPT écrit de zéro en PyTorch (tokeniseur, auto-attention causale, entraînement) et une boîte à outils d'IA générative responsable : masquage des renseignements personnels, évaluation de résumés (ROUGE-1), explicateur de documents avec vérification des dates et montants, et assistant coop honnête avec couche Claude optionnelle. 19 tests pytest.</p>
+              <div class="project-badges"><span class="badge">Python</span><span class="badge">PyTorch</span><span class="badge">Transformer</span><span class="badge">pytest</span><span class="badge">Claude API</span></div>
+              <a class="project-link" href="https://github.com/ferhatyassine/ai-portfolio" target="_blank" rel="noopener"><span data-i18n="p_link">Voir le projet</span> →</a>
             </div>
           </div>
 
-          <!-- ── Projet 5 : Ce portfolio ── -->
+          <!-- ── Projet 4 : Modélisation du Bruit Perceptible ── -->
           <div class="project-item reveal">
             <div class="project-accent"></div>
             <div class="project-info">
-              <span class="project-tag" data-i18n="p5_tag">Front-end · Web</span>
-              <h1 data-i18n="p5_t">Ce portfolio</h1>
-              <h2 data-i18n="p5_st">Site bilingue sans framework</h2>
-              <p data-i18n="p5_p">
-                Site adaptatif en HTML, CSS et JavaScript natif : bascule FR/EN, CV téléchargé dans la langue choisie, animations au défilement, déployé sur GitHub Pages.
-              </p>
-              <div class="project-badges">
-                <span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">JavaScript</span><span class="badge">GitHub Pages</span>
-              </div>
-              <a class="project-link" href="https://github.com/ferhatyassine/Portfolio" target="_blank" rel="noopener"><span data-i18n="p_link">Voir le code</span> →</a>
+              <span class="project-tag" data-i18n="p4_tag">Projet de recherche · Traitement d'image</span>
+              <h1 data-i18n="p4_t">Modélisation du Bruit Perceptible</h1>
+              <h2 data-i18n="p4_tech">C++20 · Qt · CMake</h2>
+              <p data-i18n="p4_p">Implémentation de deux approches pour mesurer le bruit dans les images numériques : métriques mathématiques (PSNR, MSE, critères de Linfoot) et modèle perceptuel du Système Visuel Humain (carte de saillance d'Itti-Koch, pyramides gaussiennes, filtres de Gabor, 42 cartes de propriétés). Projet complet avec documentation détaillée.</p>
+              <div class="project-badges"><span class="badge">C++20</span><span class="badge">Qt</span><span class="badge">CMake</span><span class="badge">PSNR</span><span class="badge">Itti-Koch</span></div>
+              <a class="project-link" href="https://github.com/ferhatyassine/perceptual-noise-modeling" target="_blank" rel="noopener"><span data-i18n="p_link">Voir le projet</span> →</a>
             </div>
           </div>
+
+          <!-- ── Projet 5 : Base de données scolaire ── -->
+          <div class="project-item reveal">
+            <div class="project-accent"></div>
+            <div class="project-info">
+              <span class="project-tag" data-i18n="p5_tag">Bases de données · SQL</span>
+              <h1 data-i18n="p5_t">Base de données scolaire</h1>
+              <h2 data-i18n="p5_tech">MySQL · SQL · MySQL Workbench</h2>
+              <p data-i18n="p5_p">Schéma relationnel d'un conseil scolaire (écoles, élèves, absences) avec clés primaires et étrangères, puis requêtes d'analyse : jointures, agrégations (GROUP BY / HAVING), sous-requêtes, vues, procédures stockées, transactions et index vérifiés avec EXPLAIN.</p>
+              <div class="project-badges"><span class="badge">MySQL</span><span class="badge">SQL</span><span class="badge">JOIN</span><span class="badge" data-i18n="p5_b3">Procédures stockées</span><span class="badge">Transactions</span></div>
+              <a class="project-link" href="https://github.com/ferhatyassine/data-admin" target="_blank" rel="noopener"><span data-i18n="p_link">Voir le projet</span> →</a>
+            </div>
+          </div>
+
+          <!-- ── Projet 6 : Gestionnaire de tâches CLI ── -->
+          <div class="project-item reveal">
+            <div class="project-accent"></div>
+            <div class="project-info">
+              <span class="project-tag" data-i18n="p6_tag">C++ moderne · Linux</span>
+              <h1 data-i18n="p6_t">Gestionnaire de tâches CLI</h1>
+              <h2 data-i18n="p6_tech">C++17 · Linux · GDB</h2>
+              <p data-i18n="p6_p">Application en ligne de commande (ajouter, lister, terminer, supprimer) avec persistance dans un fichier, conteneurs STL et modules séparés. Chaîne d'outils Linux sous WSL2 (gcc, CMake) et débogage mémoire avec GDB, dans un parcours autodidacte vers le C++ embarqué.</p>
+              <div class="project-badges"><span class="badge">C++17</span><span class="badge">STL</span><span class="badge">Linux</span><span class="badge">GDB</span><span class="badge">WSL2</span></div>
+              <a class="project-link" href="https://github.com/ferhatyassine/embedded-cpp-journey" target="_blank" rel="noopener"><span data-i18n="p_link">Voir le projet</span> →</a>
+            </div>
+          </div>
+
+          <!-- ── Projet 7 : Ce portfolio ── -->
+          <div class="project-item reveal">
+            <div class="project-accent"></div>
+            <div class="project-info">
+              <span class="project-tag" data-i18n="p7_tag">Développement Web · Front-end</span>
+              <h1 data-i18n="p7_t">Ce portfolio</h1>
+              <h2 data-i18n="p7_tech">HTML · CSS · JavaScript</h2>
+              <p data-i18n="p7_p">Site personnel adaptatif en HTML, CSS et JavaScript natif, sans framework : bascule FR/EN, CV téléchargé dans la langue choisie, animations au défilement, déployé sur GitHub Pages.</p>
+              <div class="project-badges"><span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">JavaScript</span><span class="badge">GitHub Pages</span></div>
+              <a class="project-link" href="https://github.com/ferhatyassine/Portfolio" target="_blank" rel="noopener"><span data-i18n="p_link">Voir le projet</span> →</a>
+            </div>
+          </div>
+
+          <!-- ── AJOUTER TES FUTURS PROJETS ICI (copier un bloc ci-dessus) ── -->
         </div>
         <a class="cta ghost" href="https://github.com/ferhatyassine" target="_blank" rel="noopener" data-i18n="cta_allgh">Tous mes dépôts GitHub</a>
       </div>
