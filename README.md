@@ -14,7 +14,9 @@ Portfolio/
 ├── img/
 │   ├── hero-bg.jpg                   ← Image de fond de l'accueil
 │   └── profile.jpg                   ← Photo de profil (section À propos)
-├── CV_Ferhat_Mohamed_Yassine.pdf     ← CV téléchargeable
+├── CV_Ferhat_Mohamed_Yassine_FR.pdf  ← CV en français (bouton CV quand le site est en FR)
+├── CV_Ferhat_Mohamed_Yassine_EN.pdf  ← CV en anglais (bouton CV quand le site est en EN)
+├── CV_Ferhat_Mohamed_Yassine.pdf     ← copie du CV anglais (anciens liens)
 └── README.md                         ← Ce fichier
 ```
 
@@ -27,7 +29,7 @@ Portfolio/
 | Ma photo                      | `img/profile.jpg`  | Remplacer le fichier (garder le nom)   |
 | Un texte affiché              | `index.html`       | + la traduction dans `js/app.js` (i18n)|
 | Ajouter un projet             | `index.html`       | Copier un bloc `project-item`          |
-| Le CV                         | Remplacer le PDF   | Garder le même nom de fichier          |
+| Le CV                         | Remplacer les PDF  | Garder les noms `_FR.pdf` et `_EN.pdf` (voir `CV_FILES` dans `js/app.js`) |
 
 ## Tester en local
 

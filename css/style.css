@@ -126,6 +126,7 @@ p { font-size: 1.4rem; margin-top: 5px; line-height: 2.5rem; font-weight: 400; l
 #hero h1:nth-of-type(1) span.box { animation-delay: 0.5s; }
 #hero h1:nth-of-type(2) span.box { animation-delay: 1.5s; }
 #hero h1:nth-of-type(3) span.box { animation-delay: 2.5s; }
+#hero .hero-lead { color: #e2e8f0; font-size: 1.5rem; line-height: 2.4rem; margin-top: 18px; max-width: 560px; opacity: 0; animation: fade_in 0.8s ease forwards; animation-delay: 3.4s; }
 #hero .hero-cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
 #hero .cta.ghost { background: transparent; color: #fff; border-color: #fff; }
 #hero .cta.ghost:hover { background: rgba(255,255,255,0.15); }
@@ -168,6 +169,23 @@ p { font-size: 1.4rem; margin-top: 5px; line-height: 2.5rem; font-weight: 400; l
 #projects .project-link { margin-top: 16px; font-size: 1.3rem; font-weight: 700; color: var(--primary); display: inline-flex; align-items: center; gap: 6px; transition: gap 0.25s; }
 #projects .project-link:hover { gap: 12px; }
 
+/* Grille de projets : 1 colonne sur mobile, 2 sur bureau (le projet .featured prend toute la largeur) */
+#projects .projects > .cta { margin-top: 40px; }
+#projects .project-info h1 { overflow-wrap: anywhere; }
+
+/* ── 7b. EXPÉRIENCE ── */
+#experience { background-color: #ffffff; }
+#experience .experience { flex-direction: column; max-width: 1100px; margin: 0 auto; padding: 100px 20px; min-height: auto; }
+#experience .exp-card { width: 100%; margin-top: 50px; background: linear-gradient(135deg, var(--bg-soft), #fff); border: 1px solid #dbeafe; border-left: 6px solid var(--primary); border-radius: 20px; padding: 32px 30px; box-shadow: 0 4px 18px rgba(15,23,42,0.06); }
+#experience .exp-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; align-items: flex-start; margin-bottom: 14px; }
+#experience .exp-head h2 { font-family: 'Poppins', sans-serif; font-size: 2.1rem; color: var(--text); }
+#experience .exp-head h3 { font-size: 1.4rem; color: var(--primary-dark); font-weight: 600; margin-top: 4px; }
+#experience .exp-date { font-size: 1.2rem; font-weight: 700; color: var(--accent); background: var(--accent-soft); padding: 6px 14px; border-radius: 20px; white-space: nowrap; }
+#experience ul { padding-left: 20px; }
+#experience li { font-size: 1.35rem; line-height: 2.2rem; color: var(--muted); margin-bottom: 6px; }
+#experience .project-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+#experience .badge { font-size: 1.1rem; padding: 5px 14px; border-radius: 20px; background: #fff; color: var(--primary-dark); font-weight: 600; border: 1px solid #dbeafe; }
+
 /* ── 8. À PROPOS ── */
 #about { background-color: #ffffff; }
 #about .about { flex-direction: column-reverse; max-width: 1100px; margin: 0 auto; padding: 100px 20px; gap: 60px; }
@@ -186,6 +204,7 @@ p { font-size: 1.4rem; margin-top: 5px; line-height: 2.5rem; font-weight: 400; l
 #about .edu-card h3 { font-family: 'Poppins', sans-serif; font-size: 1.55rem; color: var(--text); font-weight: 600; }
 #about .edu-card p { font-size: 1.25rem; margin: 2px 0 0; line-height: 1.9rem; }
 #about .tech-badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 18px 0 6px; }
+#about .about-cta { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
 #about .tech-badges span { font-size: 1.15rem; padding: 6px 15px; border-radius: 20px; background: var(--bg-soft); color: var(--primary-dark); font-weight: 600; border: 1px solid #dbeafe; }
 
 /* ── 9. CONTACT ── */
@@ -215,6 +234,7 @@ p { font-size: 1.4rem; margin-top: 5px; line-height: 2.5rem; font-weight: 400; l
 #backTop:hover { transform: translateY(-4px); }
 
 /* ── 12. ANIMATIONS ── */
+@keyframes fade_in { to { opacity: 1; } }
 @keyframes pulse_dot { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }          /* point vert clignotant   */
 @keyframes text_reveal_box { 50% { width: 100%; left: 0; } 100% { width: 0; left: 100%; } } /* boîte qui balaie */
 @keyframes text_reveal { 100% { color: #ffffff; } }                                /* texte devient blanc     */
@@ -230,11 +250,17 @@ p { font-size: 1.4rem; margin-top: 5px; line-height: 2.5rem; font-weight: 400; l
   #about .tech-badges { justify-content: flex-start; }
   #contact .contact-items { flex-direction: row; flex-wrap: wrap; }
   #contact .contact-item { flex: 1 1 300px; }
+  #about .about-cta { justify-content: flex-start; }
+}
+/* Bureau moyen : projets sur 2 colonnes */
+@media (min-width: 992px) {
+  #projects .all-projects { display: grid; grid-template-columns: 1fr 1fr; }
+  #projects .project-item.featured { grid-column: 1 / -1; }
 }
 /* Bureau (écrans ≥ 1200px) : menu horizontal, hamburger caché */
 @media (min-width: 1200px) {
   #header .hamburger { display: none; }
   #header .nav-list ul { position: initial; display: block; height: auto; width: fit-content; background-color: transparent; }
   #header .nav-list ul li { display: inline-block; }
-  #header .nav-list ul li a { font-size: 1.5rem; padding: 10px 14px; font-weight: 600; }
+  #header .nav-list ul li a { font-size: 1.45rem; padding: 10px 11px; font-weight: 600; }
 }

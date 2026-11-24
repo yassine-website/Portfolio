@@ -3,10 +3,11 @@
    ---------------------------------------------------------------
    SOMMAIRE :
      1. Dictionnaire de traductions FR / EN
-     2. Fonction de changement de langue
-     3. Menu hamburger (mobile)
-     4. Barre de navigation au scroll + bouton retour en haut
-     5. Animations d'apparition au scroll
+     2. Fichiers CV par langue
+     3. Fonction de changement de langue (+ lien du CV)
+     4. Menu hamburger (mobile)
+     5. Barre de navigation au scroll + bouton retour en haut
+     6. Animations d'apparition au scroll
    ═══════════════════════════════════════════════════════════════ */
 
 /* ── 1. TRADUCTIONS ──
@@ -15,10 +16,11 @@
    ET dans index.html (texte français par défaut). */
 const i18n = {
   fr: {
-    nav_home:"Accueil", nav_interests:"Intérêts", nav_skills:"Compétences", nav_projects:"Projets", nav_about:"À propos", nav_contact:"Contact",
-    badge:"Étudiant à La Cité collégiale · Ottawa",
+    nav_home:"Accueil", nav_interests:"Intérêts", nav_skills:"Compétences", nav_exp:"Expérience", nav_projects:"Projets", nav_about:"À propos", nav_contact:"Contact",
+    badge:"Étudiant au Collège La Cité · À la recherche d'un stage coop",
     hello:"Bonjour,", myname:"Je m'appelle",
-    cta_projects:"Portfolio", cta_cv2:"CV 📄",
+    hero_lead:"Développeur logiciel avec 6 ans d'expérience · Java / Jakarta EE · C++ moderne · SQL",
+    cta_projects:"Mes projets", cta_cv2:"CV 📄",
     int_t:"Intérêts",
     int_sub:"Je consacre beaucoup de temps à mes études et à l'informatique, mais je crois aussi à l'équilibre entre travail et vie personnelle. Voici ce qui me passionne.",
     int1_t:"Programmation",
@@ -30,46 +32,69 @@ const i18n = {
     int4_t:"Image & Photo",
     int4_p:"Ma passion pour le traitement d'image dépasse le cadre académique : je m'intéresse à la photographie numérique, à la vision par ordinateur et à la manière dont les algorithmes « voient » le monde.",
     skills_t1:"Mes", skills_t2:"Compétences",
-    skills_sub:"Un profil en construction, aligné sur ma formation : développement logiciel, bases de données et technologies web.",
-    sk1_t:"Moderne",
-    sk1_p:"C++17/20, RAII, smart pointers, STL, CMake et programmation orientée objet.",
-    sk2_p:"Scripting, résolution de problèmes et développement d'outils.",
-    sk3_p:"Interfaces graphiques avec Qt Creator et Qt Designer.",
-    sk4_t:"Traitement d'Image",
-    sk4_p:"PSNR, critères de Linfoot, saillance visuelle Itti-Koch, filtres de Gabor.",
-    sk5_t:"Bases de Données",
-    sk5_p:"MySQL, modélisation relationnelle et requêtes SQL — formation en cours.",
+    skills_sub:"Ce que j'utilise au quotidien, en entreprise comme dans mes projets.",
+    sk1_p:"JSF/PrimeFaces, CDI, EJB, JPA, JAX-RS, API REST, Maven, JUnit, Payara.",
+    sk2_t:"moderne",
+    sk2_p:"C++17/20, STL, POO, CMake, Qt, GDB, programmation sous Linux.",
+    sk3_t:"Bases de données",
+    sk3_p:"MySQL, modélisation relationnelle, vues, procédures stockées, transactions, index, JPQL.",
+    sk4_p:"HTML, CSS, JavaScript, API REST JSON, conception d'interfaces adaptatives.",
+    sk5_t:"Traitement d'image",
+    sk5_p:"PSNR, critères de Linfoot, saillance visuelle d'Itti-Koch, filtres de Gabor.",
     sk6_t:"Outils",
-    sk6_p:"Git, GitHub, Linux, GCC/Clang, CMake, VS Code.",
-    proj_t1:"Projets", proj_t2:"Récents",
-    proj_sub:"Des projets concrets alliant théorie et pratique.",
-    p1_tag:"Projet de Recherche · Traitement d'Image",
-    p1_t:"Modélisation du Bruit Perceptible",
-    p1_p:"Implémentation de deux approches pour mesurer le bruit dans les images numériques : métriques mathématiques (PSNR, MSE, critères de Linfoot) et modèle perceptuel du Système Visuel Humain (carte de saillance d'Itti-Koch, pyramides gaussiennes, filtres de Gabor, 42 cartes de propriétés). Projet complet avec documentation détaillée.",
-    p_link:"Voir le projet",
-    p3_tag:"Développement Web · Jakarta EE",
-    p3_t:"MediBook",
-    p3_st:"Gestion de Rendez-vous Médicaux",
-    p3_p:"Application web Jakarta EE 10 permettant de gérer les rendez-vous d'une clinique : réservation de créneaux par les patients, gestion des disponibilités et comptes rendus par les médecins, et administration des spécialités et statistiques.",
+    sk6_p:"Git, GitHub, IntelliJ IDEA, VS Code, WinDev, MySQL Workbench, Linux (Ubuntu/WSL2), Python.",
+    exp_t1:"Expérience", exp_t2:"Professionnelle",
+    exp_sub:"Six ans de développement d'applications de gestion en entreprise.",
+    exp_role:"Développeur de logiciels",
+    exp_org:"Coopérative des céréales et légumes secs · Khenchela, Algérie",
+    exp_date:"Janv. 2018 – juin 2024",
+    exp_b1:"Conception d'une application de paiement électronique pour les agriculteurs (WinDev, HyperFileSQL) : collecte des RIB, rapprochement avec les ventes et la comptabilité, génération du fichier EDI transmis à la banque.",
+    exp_b2:"Applications de gestion des stocks, de location de matériel agricole et de suivi du carburant (CRUD, C#) : environ 35 % de temps de suivi manuel en moins.",
+    exp_b3:"Scripts de validation JavaScript pour les formulaires internes : environ 40 % d'erreurs de saisie en moins.",
+    proj_t1:"Mes", proj_t2:"Projets",
+    proj_sub:"Des projets concrets, tous disponibles sur mon GitHub.",
+    p_link:"Voir le code",
+    p1_tag:"Full-stack · Jakarta EE",
+    p1_st:"Application Web de prise de rendez-vous médicaux",
+    p1_p:"Application à trois rôles (patient, médecin, administrateur) : réservation en 3 étapes, créneaux de 30 minutes, détection des chevauchements et prévention des doubles réservations. API REST JSON (JAX-RS), mots de passe hachés en PBKDF2, contrôle d'accès par rôles et 21 tests JUnit.",
+    p2_tag:"Bases de données · SQL",
+    p2_t:"Base de données scolaire",
+    p2_st:"Administration et analyse de données avec MySQL",
+    p2_p:"Schéma relationnel d'un conseil scolaire (écoles, élèves, absences) avec clés étrangères et contraintes, puis requêtes d'analyse : jointures, agrégations, sous-requêtes, vues, procédures stockées, transactions et index vérifiés avec EXPLAIN.",
+    p2_b:"Procédures stockées", p2_v:"Vues",
+    p3_tag:"Recherche · Traitement d'image",
+    p3_t:"Modélisation du bruit perceptuel",
+    p3_st:"Mémoire de maîtrise en génie logiciel",
+    p3_p:"Deux approches pour mesurer le bruit dans les images : métriques mathématiques (PSNR, MSE, critères de Linfoot) et modèle perceptuel du système visuel humain (carte de saillance d'Itti-Koch, pyramides gaussiennes, filtres de Gabor), avec interface Qt.",
+    p4_tag:"C++ moderne · Linux",
+    p4_t:"Gestionnaire de tâches CLI",
+    p4_st:"Parcours C++ / systèmes embarqués",
+    p4_p:"Application en ligne de commande (ajouter, lister, terminer, supprimer) avec persistance dans un fichier, découpée en modules. Chaîne d'outils Linux sous WSL2 (gcc, CMake) et débogage mémoire avec GDB, dans un parcours autodidacte vers le C++ embarqué.",
+    p5_tag:"Front-end · Web",
+    p5_t:"Ce portfolio",
+    p5_st:"Site bilingue sans framework",
+    p5_p:"Site adaptatif en HTML, CSS et JavaScript natif : bascule FR/EN, CV téléchargé dans la langue choisie, animations au défilement, déployé sur GitHub Pages.",
+    cta_allgh:"Tous mes dépôts GitHub",
     about_t1:"À propos", about_t2:"de moi",
-    about_st:"Étudiant en Informatique @ La Cité collégiale",
-    about_p1:"Je suis étudiant en informatique à La Cité collégiale, à Ottawa. Après une formation universitaire en informatique en Algérie, j'ai choisi de poursuivre mon parcours au Canada pour me rapprocher de l'un des écosystèmes technologiques les plus dynamiques du pays.",
-    about_p2:"C'est en travaillant sur mes premiers projets de traitement d'image que j'ai découvert ma passion pour le développement logiciel. Depuis, je n'ai jamais cessé d'apprendre : C++, Python, bases de données, web — chaque cours et chaque projet est une occasion de progresser.",
-    edu1:"Études collégiales en cours · Informatique",
-    edu2_t:"Université Abbes Laghrour Khenchela",
-    edu2:"Formation universitaire en informatique · Algérie",
+    about_st:"Étudiant en programmation informatique @ Collège La Cité",
+    about_p1:"Titulaire d'un baccalauréat et d'une maîtrise en génie logiciel, j'ai travaillé six ans comme développeur de logiciels en Algérie avant de m'installer au Canada. Je suis aujourd'hui en 2e année de programmation informatique (régime coop) au Collège La Cité, à Ottawa.",
+    about_p2:"Je cherche un stage coop en développement d'applications où je peux mettre à profit mon expérience en Java / Jakarta EE, en C++ et en bases de données, et continuer à apprendre au sein d'une équipe.",
+    edu1:"Diplôme en programmation informatique (coop) · 2025 – 2028 · Moyenne 3,78/4",
+    edu2_t:"Université Abbès-Laghrour — Khenchela",
+    edu2:"Baccalauréat et maîtrise en génie logiciel et systèmes distribués · 2012 – 2018",
     cta_github:"Mon GitHub", cta_cv:"Télécharger mon CV",
     contact_t1:"Me", contact_t2:"Contacter",
-    contact_sub:"N'hésitez pas à me joindre pour toute opportunité ou collaboration.",
+    contact_sub:"N'hésitez pas à me joindre pour un stage, une opportunité ou une collaboration.",
     c_phone:"Téléphone", c_addr:"Adresse",
-    footer_sub:"Étudiant en informatique à La Cité collégiale, Ottawa",
-    footer_c:"© 2026 Ferhat Mohamed Yassine. Tous droits réservés."
+    footer_sub:"Étudiant en programmation informatique au Collège La Cité, Ottawa",
+    footer_c:"Tous droits réservés."
   },
   en: {
-    nav_home:"Home", nav_interests:"Interests", nav_skills:"Skills", nav_projects:"Projects", nav_about:"About", nav_contact:"Contact",
-    badge:"Student at La Cité collégiale · Ottawa",
+    nav_home:"Home", nav_interests:"Interests", nav_skills:"Skills", nav_exp:"Experience", nav_projects:"Projects", nav_about:"About", nav_contact:"Contact",
+    badge:"Student at Collège La Cité · Looking for a co-op internship",
     hello:"Hello,", myname:"My name is",
-    cta_projects:"Portfolio", cta_cv2:"Resume 📄",
+    hero_lead:"Software developer with 6 years of experience · Java / Jakarta EE · Modern C++ · SQL",
+    cta_projects:"My projects", cta_cv2:"Resume 📄",
     int_t:"Interests",
     int_sub:"While I dedicate a lot of my time to my studies and computer science, I believe in a healthy work-life balance. Here is what I'm passionate about.",
     int1_t:"Programming",
@@ -81,108 +106,134 @@ const i18n = {
     int4_t:"Image & Photo",
     int4_p:"My passion for image processing goes beyond academics: I'm interested in digital photography, computer vision and how algorithms \"see\" the world.",
     skills_t1:"My", skills_t2:"Skills",
-    skills_sub:"A growing profile aligned with my studies: software development, databases and web technologies.",
-    sk1_t:"Modern",
-    sk1_p:"C++17/20, RAII, smart pointers, STL, CMake and object-oriented programming.",
-    sk2_p:"Scripting, problem solving and tool development.",
-    sk3_p:"Graphical interfaces with Qt Creator and Qt Designer.",
-    sk4_t:"Image Processing",
-    sk4_p:"PSNR, Linfoot criteria, Itti-Koch visual saliency, Gabor filters.",
-    sk5_t:"Databases",
-    sk5_p:"MySQL, relational modeling and SQL queries — currently studying.",
+    skills_sub:"What I use every day, at work and in my projects.",
+    sk1_p:"JSF/PrimeFaces, CDI, EJB, JPA, JAX-RS, REST APIs, Maven, JUnit, Payara.",
+    sk2_t:"Modern",
+    sk2_p:"C++17/20, STL, OOP, CMake, Qt, GDB, Linux programming.",
+    sk3_t:"Databases",
+    sk3_p:"MySQL, relational modeling, views, stored procedures, transactions, indexing, JPQL.",
+    sk4_p:"HTML, CSS, JavaScript, JSON REST APIs, responsive interface design.",
+    sk5_t:"Image Processing",
+    sk5_p:"PSNR, Linfoot criteria, Itti-Koch visual saliency, Gabor filters.",
     sk6_t:"Tools",
-    sk6_p:"Git, GitHub, Linux, GCC/Clang, CMake, VS Code.",
-    proj_t1:"Recent", proj_t2:"Projects",
-    proj_sub:"Concrete projects combining theory and practice.",
-    p1_tag:"Research Project · Image Processing",
-    p1_t:"Perceptual Noise Modeling",
-    p1_p:"Implementation of two approaches to measure noise in digital images: mathematical metrics (PSNR, MSE, Linfoot criteria) and a perceptual model of the Human Visual System (Itti-Koch saliency map, Gaussian pyramids, Gabor filters, 42 feature maps). Complete project with detailed documentation.",
-    p_link:"View project",
-    p3_tag:"Web Development · Jakarta EE",
-    p3_t:"MediBook",
-    p3_st:"Medical Appointment Management",
-    p3_p:"Jakarta EE 10 web application managing clinical appointments: patient slot booking, doctor scheduling and consultation reports, and administrative management with statistics.",
+    sk6_p:"Git, GitHub, IntelliJ IDEA, VS Code, WinDev, MySQL Workbench, Linux (Ubuntu/WSL2), Python.",
+    exp_t1:"Work", exp_t2:"Experience",
+    exp_sub:"Six years building business applications in industry.",
+    exp_role:"Software Developer",
+    exp_org:"Cereals and Dry Legumes Cooperative · Khenchela, Algeria",
+    exp_date:"Jan. 2018 – June 2024",
+    exp_b1:"Designed an electronic payment application for farmers (WinDev, HyperFileSQL): bank details collection, reconciliation with sales and accounting, and generation of the EDI file sent to the bank.",
+    exp_b2:"Built stock management, equipment rental and fuel tracking applications (CRUD, C#): about 35% less time spent on manual tracking.",
+    exp_b3:"Wrote JavaScript validation scripts for internal forms: about 40% fewer data-entry errors.",
+    proj_t1:"My", proj_t2:"Projects",
+    proj_sub:"Hands-on projects, all available on my GitHub.",
+    p_link:"View code",
+    p1_tag:"Full-stack · Jakarta EE",
+    p1_st:"Medical appointment booking web application",
+    p1_p:"Three-role application (patient, doctor, admin): 3-step booking, 30-minute slots, overlap detection and double-booking prevention. JSON REST API (JAX-RS), PBKDF2 password hashing, role-based access control and 21 JUnit tests.",
+    p2_tag:"Databases · SQL",
+    p2_t:"School Board Database",
+    p2_st:"Data administration and analysis with MySQL",
+    p2_p:"Relational schema for a school board (schools, students, absences) with foreign keys and constraints, plus analytical queries: joins, aggregations, subqueries, views, stored procedures, transactions and indexes checked with EXPLAIN.",
+    p2_b:"Stored procedures", p2_v:"Views",
+    p3_tag:"Research · Image Processing",
+    p3_t:"Perceptual Noise Modeling",
+    p3_st:"Master's thesis in software engineering",
+    p3_p:"Two approaches to measure noise in images: mathematical metrics (PSNR, MSE, Linfoot criteria) and a perceptual model of the human visual system (Itti-Koch saliency map, Gaussian pyramids, Gabor filters), with a Qt interface.",
+    p4_tag:"Modern C++ · Linux",
+    p4_t:"CLI Task Manager",
+    p4_st:"C++ / embedded systems learning path",
+    p4_p:"Command-line app (add, list, done, remove) with file persistence, split into modules. Linux toolchain on WSL2 (gcc, CMake) and memory debugging with GDB, as part of a self-directed path toward embedded C++.",
+    p5_tag:"Front-end · Web",
+    p5_t:"This portfolio",
+    p5_st:"Bilingual site, no framework",
+    p5_p:"Responsive site in HTML, CSS and vanilla JavaScript: FR/EN switch, résumé downloaded in the chosen language, scroll animations, deployed on GitHub Pages.",
+    cta_allgh:"All my GitHub repositories",
     about_t1:"About", about_t2:"me",
-    about_st:"Computer Science Student @ La Cité collégiale",
-    about_p1:"I am a computer science student at La Cité collégiale in Ottawa. After university studies in computer science in Algeria, I chose to continue my journey in Canada, close to one of the country's most dynamic tech ecosystems.",
-    about_p2:"Working on my first image processing projects is where I discovered my passion for software development. Since then I've never stopped learning: C++, Python, databases, web — every course and project is a chance to grow.",
-    edu1:"Current college studies · Computer Science",
-    edu2_t:"Abbes Laghrour University of Khenchela",
-    edu2:"University studies in Computer Science · Algeria",
+    about_st:"Computer Programming Student @ Collège La Cité",
+    about_p1:"With a Bachelor's and a Master's in software engineering, I worked for six years as a software developer in Algeria before moving to Canada. I'm now in my second year of Computer Programming (Co-op) at Collège La Cité in Ottawa.",
+    about_p2:"I'm looking for a co-op internship in application development where I can put my experience with Java / Jakarta EE, C++ and databases to work, and keep learning as part of a team.",
+    edu1:"Diploma in Computer Programming (Co-op) · 2025 – 2028 · GPA 3.78/4",
+    edu2_t:"Abbes Laghrour University — Khenchela",
+    edu2:"Bachelor's and Master's in Software Engineering and Distributed Systems · 2012 – 2018",
     cta_github:"My GitHub", cta_cv:"Download my Resume",
     contact_t1:"Contact", contact_t2:"Me",
-    contact_sub:"Feel free to reach out for any opportunity or collaboration.",
+    contact_sub:"Feel free to reach out about an internship, an opportunity or a collaboration.",
     c_phone:"Phone", c_addr:"Address",
-    footer_sub:"Computer Science student at La Cité collégiale, Ottawa",
-    footer_c:"© 2026 Ferhat Mohamed Yassine. All rights reserved."
+    footer_sub:"Computer Programming student at Collège La Cité, Ottawa",
+    footer_c:"All rights reserved."
   }
 };
 
-/* ── 2. CHANGEMENT DE LANGUE ──
-   Parcourt tous les éléments ayant un attribut data-i18n et remplace
-   leur texte par la traduction. Le choix est sauvegardé (localStorage). */
+/* ── 2. CV PAR LANGUE ──
+   Tous les liens marqués data-cv dans index.html pointent vers le bon fichier. */
+const CV_FILES = {
+  fr: "CV_Ferhat_Mohamed_Yassine_FR.pdf",
+  en: "CV_Ferhat_Mohamed_Yassine_EN.pdf"
+};
+
+/* ── 3. CHANGEMENT DE LANGUE ──
+   Remplace les textes data-i18n, met à jour le lien du CV et
+   sauvegarde le choix (localStorage). */
 function setLang(lang) {
+  if (!i18n[lang]) lang = 'fr';
   document.documentElement.lang = lang;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (i18n[lang][key] !== undefined) el.textContent = i18n[lang][key];
   });
-  // Met en surbrillance le bouton actif (FR ou EN)
+  document.querySelectorAll('[data-cv]').forEach(a => a.setAttribute('href', CV_FILES[lang]));
   document.getElementById('btnFr').classList.toggle('active', lang === 'fr');
   document.getElementById('btnEn').classList.toggle('active', lang === 'en');
   try { localStorage.setItem('lang', lang); } catch(e) {}
 }
-// Au chargement : restaurer la langue choisie précédemment
-try { if (localStorage.getItem('lang') === 'en') setLang('en'); } catch(e) {}
 
-/* ── 3. MENU HAMBURGER (mobile) ── */
+// Au chargement : langue enregistrée, sinon langue du navigateur, sinon français
+(function initLang() {
+  let lang = null;
+  try { lang = localStorage.getItem('lang'); } catch(e) {}
+  if (!lang) lang = (navigator.language || 'fr').toLowerCase().startsWith('en') ? 'en' : 'fr';
+  setLang(lang);
+})();
+
+// Année du pied de page
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ── 4. MENU HAMBURGER (mobile) ── */
 const hamburger   = document.querySelector('.header .nav-bar .nav-list .hamburger');
 const mobile_menu = document.querySelector('.header .nav-bar .nav-list ul');
 const menu_items  = document.querySelectorAll('.header .nav-bar .nav-list ul li a');
 const headerEl    = document.getElementById('header');
 const headerBg    = document.querySelector('.header.container');
 
-// Ouvrir / fermer le menu au clic sur le hamburger
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('active');
   mobile_menu.classList.toggle('active');
 });
-// Fermer le menu quand on clique sur un lien
 menu_items.forEach(item => item.addEventListener('click', () => {
   hamburger.classList.remove('active');
   mobile_menu.classList.remove('active');
 }));
 
-/* ── 4. NAVIGATION AU SCROLL + BOUTON RETOUR EN HAUT ──
-   En haut de page : barre transparente, texte blanc (sur la photo).
-   Après 200px de scroll : barre blanche, texte foncé. */
+/* ── 5. NAVIGATION AU SCROLL + BOUTON RETOUR EN HAUT ── */
 const backTop = document.getElementById('backTop');
-headerEl.classList.add('on-hero'); // état initial
-
-document.addEventListener('scroll', () => {
-  if (window.scrollY > 200) {
-    headerBg.style.backgroundColor = 'rgba(255,255,255,0.97)';
-    headerBg.style.boxShadow = '0 2px 14px rgba(15,23,42,0.08)';
-    headerEl.classList.add('scrolled');
-    headerEl.classList.remove('on-hero');
-  } else {
-    headerBg.style.backgroundColor = 'transparent';
-    headerBg.style.boxShadow = 'none';
-    headerEl.classList.remove('scrolled');
-    headerEl.classList.add('on-hero');
-  }
-  // Afficher le bouton ↑ après 500px de défilement
+function onScroll() {
+  const scrolled = window.scrollY > 200;
+  headerBg.style.backgroundColor = scrolled ? 'rgba(255,255,255,0.97)' : 'transparent';
+  headerBg.style.boxShadow = scrolled ? '0 2px 14px rgba(15,23,42,0.08)' : 'none';
+  headerEl.classList.toggle('scrolled', scrolled);
+  headerEl.classList.toggle('on-hero', !scrolled);
   backTop.classList.toggle('show', window.scrollY > 500);
-});
+}
+document.addEventListener('scroll', onScroll);
+onScroll();
 
-/* ── 5. ANIMATIONS D'APPARITION AU SCROLL ──
-   IntersectionObserver détecte quand un élément .reveal entre dans
-   l'écran et lui ajoute la classe .visible (transition CSS). */
+/* ── 6. ANIMATIONS D'APPARITION AU SCROLL ── */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       e.target.classList.add('visible');
-      observer.unobserve(e.target); // animer une seule fois
+      observer.unobserve(e.target);
     }
   });
 }, { threshold: 0.12 });
